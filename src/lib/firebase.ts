@@ -3,7 +3,7 @@ import { initializeApp, getApps, getApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
-export const firebaseConfig = {
+const firebaseConfig = {
   "projectId": "new-prototype-obnzi",
   "appId": "1:146156794753:web:f9e2ca29ddb3780d706e80",
   "storageBucket": "new-prototype-obnzi.appspot.com",
