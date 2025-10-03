@@ -21,13 +21,19 @@ interface GroupedProduction {
 
 export default function ProductionPowdersClientPage({ initialData }: { initialData: ProductionData[]}) {
     const [data, setData] = useState<ProductionData[]>(initialData)
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const currentUser = useCurrentUser()
     const router = useRouter()
     
     const [searchTerm, setSearchTerm] = useState("");
 
     const canCreate = currentUser?.role === 'Administrator';
+
+    useEffect(() => {
+        if (currentUser) {
+            setIsLoading(false);
+        }
+    }, [currentUser]);
 
     useEffect(() => {
         setData(initialData.sort((a, b) => new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime()));

@@ -33,7 +33,6 @@ import { type ProductionData } from './production/page';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import { ListOrdered } from 'lucide-react';
 import Link from 'next/link';
-import { AppSidebar } from '@/components/AppSidebar';
 
 const INACTIVITY_TIMEOUT = 15 * 60 * 1000;
 
@@ -173,9 +172,6 @@ function AppLayoutContent({ children }: { children: React.ReactNode }) {
     return (
         <UserProvider value={currentUserData}>
             <SidebarProvider>
-                <Suspense fallback={<LoadingScreen />}>
-                    <AppSidebar />
-                </Suspense>
                 <SidebarInset>
                     <header className="sticky top-0 z-30 flex h-16 items-center justify-between gap-4 border-b bg-background px-6 shadow-sm">
                         <div className="flex items-center gap-4">

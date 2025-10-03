@@ -1,10 +1,13 @@
 
 
 // Importa las instancias de Firestore y Storage inicializadas desde la configuración de Firebase.
-import { db, storage } from '@/lib/firebase';
+import { db } from '@/lib/firebase';
+import { getStorage } from 'firebase/storage';
 // Importa todas las funciones necesarias de Firestore y Storage para interactuar con los servicios.
 import { collection, getDocs, doc, setDoc, deleteDoc, writeBatch, query, getDoc, where, updateDoc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+
+const storage = getStorage();
 
 /**
  * Obtiene todos los documentos de una colección específica en Firestore.

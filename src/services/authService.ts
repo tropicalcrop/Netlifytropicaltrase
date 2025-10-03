@@ -5,7 +5,7 @@
 import { initializeApp, getApp, deleteApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, type UserCredential, updatePassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 // Importa la configuración de Firebase desde el archivo centralizado.
-import { firebaseConfig } from "@/lib/firebase";
+import { app } from "@/lib/firebase";
 
 /**
  * Crea un nuevo usuario en Firebase Authentication sin iniciar sesión con él.
@@ -26,7 +26,7 @@ export const createUserWithoutSignIn = async (email: string, password: string): 
     try {
       tempApp = getApp(tempAppName);
     } catch (e) {
-      tempApp = initializeApp(firebaseConfig, tempAppName);
+      tempApp = initializeApp(app.options, tempAppName);
     }
     
     try {
