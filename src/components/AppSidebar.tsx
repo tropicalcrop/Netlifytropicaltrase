@@ -20,7 +20,9 @@ import {
     SidebarMenuItem,
     SidebarMenuButton,
     SidebarSeparator,
+    SidebarFooter,
 } from '@/components/ui/sidebar';
+import { Separator } from '@/components/ui/separator';
 import { Logo } from '@/components/logo';
 import { useCurrentUser } from '@/context/UserContext';
 import { type UserData } from '@/app/users/page';
@@ -46,7 +48,11 @@ const allMenuItems: {
 export function AppSidebar() {
     const pathname = usePathname();
     const searchParams = useSearchParams();
-    const currentUserData = useCurrentUser() as UserData;
+    const currentUserData = useCurrentUser();
+
+    if (!currentUserData) {
+        return null;
+    }
 
     const getDashboardPath = (role?: Role) => {
         if (!role) return '/login';
