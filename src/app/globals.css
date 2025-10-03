@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 13% 98%;
+    --foreground: 220 10% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 10% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 10% 20%;
+    
+    --primary: 142 71% 45%; /* #27ae60 - New Green */
+    --primary-foreground: 120 100% 98%;
+    
+    --secondary: 140 56% 93%; /* #E6F4EA */
+    --secondary-foreground: 141 52% 20%;
+
+    --muted: 220 13% 94%;
+    --muted-foreground: 220 10% 40%;
+    
+    --accent: 30 100% 64%;
+    --accent-foreground: 210 40% 9.8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 142 71% 45%;
+
+    --chart-1: 142 71% 45%; /* primary */
+    --chart-2: 30 100% 64%; /* accent */
+    --chart-3: 122 40% 59%;
+    --chart-4: 0 0% 96%; /* muted */
+    --chart-5: 0 84.2% 60.2%; /* destructive */
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%; /* #020817 - New Dark Blue */
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 142 71% 45%; /* #27ae60 */
+    --primary-foreground: 210 40% 9.8%;
+    
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 22.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    
+    --accent: 30 100% 74%; 
+    --accent-foreground: 210 40% 9.8%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 142 71% 45%;
+
+    --chart-1: 142 71% 45%;
+    --chart-2: 30 100% 74%;
+    --chart-3: 217.2 32.6% 17.5%;
+    --chart-4: 217.2 32.6% 22.5%;
+    --chart-5: 0 62.8% 30.6%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Custom styles for responsive tables */
+@media screen and (max-width: 768px) {
+  .responsive-table thead {
+    @apply hidden;
+  }
+  .responsive-table tbody, .responsive-table tr, .responsive-table td {
+    @apply block;
+  }
+  .responsive-table tr {
+    @apply mb-4 rounded-lg border p-4;
+  }
+  .responsive-table td {
+    @apply mb-2 flex items-center justify-between border-b pb-2 text-right;
+  }
+  .responsive-table td[data-label="Acciones"] {
+    @apply justify-end;
+  }
+  .responsive-table td:before {
+    content: attr(data-label);
+    @apply float-left text-left font-semibold text-foreground;
+  }
+  .responsive-table td:last-child {
+    @apply border-b-0;
+  }
+}
+
+/* Custom loading animation */
+@layer utilities {
+    .animate-logo-fill {
+      animation: logo-fill 2s ease-out forwards;
+    }
+
+    @keyframes logo-fill {
+        from {
+            clip-path: inset(0 100% 0 0);
+        }
+        to {
+            clip-path: inset(0 0 0 0);
+        }
+    }
+}
